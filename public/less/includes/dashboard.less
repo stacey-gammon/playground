@@ -1,0 +1,191 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    flex: 1 0 auto;
+}
+
+.dashboard__header-links {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.dashboard__header-link {
+  color: @grayDark;
+  margin-left: 20px;
+}
+
+.dashboard__header-searchbox-row {
+  padding: 10px;
+}
+
+.dashboard__header-title {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  font-weight: bold;
+  font-size: 16px;
+
+  i.fa {
+    color: @grayLighter;
+    margin: 0 10px;
+  }
+
+  i.fa-pencil {
+    &:hover {
+      color: @gray;
+    }
+  }
+
+  i.fa-check-square {
+    color: @esGreen;
+    &:hover {
+      color: darken(@esGreen, 10%);
+    }
+  }
+
+  input {
+    padding: 0 10px;
+    border-radius: 4px;
+    border: 1px solid @grayLighter;
+    flex-grow: 1;
+  }
+}
+
+.dashboard__header-searchbox {
+  display: flex;
+  align-items: center;
+  & > input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    flex-grow: 1;
+    padding: 6px 15px;
+    border: 2px solid @grayLight;
+  }
+  & > button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.dashboard__body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  background-color: @white;
+}
+
+.dashboard__body-add-widget {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  border: 2px dashed @gray;
+  justify-content: center;
+}
+
+.dashboard__body-add-widget-text {
+  font-size: 18px;
+  text-transform: upppercase;
+  color: @gray;
+  text-align: center;
+}
+
+.dashboard__panel {
+  display: flex;
+  .react-resizable-handle { opacity: 0; }
+  &:hover {
+    border: 1px dashed @gray;
+    .dashboard__panel-controls { display: flex; }
+    .react-resizable-handle { opacity: 1; }
+  }
+}
+
+.dashboard__panel-viewOnly {
+  display: flex;
+  .react-resizable-handle { opacity: 0; }
+  &:hover {
+    border: none;
+    .dashboard__panel-controls { display: none; }
+    .react-resizable-handle { opacity: 0; }
+  }
+}
+
+.dashboard__panel-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.dashboard__panel-header {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.dashboard__panel-header-title {
+  flex-grow: 1;
+  color: @gray;
+  font-weight: 500;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 16px;
+}
+
+.dashboard__panel-controls {
+  display: none;
+  position: absolute;
+  z-index: 50000;
+  padding: 4px;
+  top: 0;
+  right: 0;
+  border-bottom-left-radius: 4px;
+  background-color: rgba(0,0,0,0.5);
+  i {
+    color: rgba(255,255,255,0.5);
+    margin-left: 5px;
+  }
+  &:hover {
+    i {
+      color: @white;
+    }
+  }
+}
+
+.dashboard__panel-control-edit,
+.dashboard__panel-control-remove {
+  cursor: pointer;
+}
+.dashboard__panel-control-move {
+  cursor: move;
+}
+
+.dashboard__panel-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.dashboard__visualization {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  padding: 10px;
+}
+
+.dashboard__visualization-title {
+  color: rgba(0,0,0,0.4);
+  font-weight: 500;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 16px;
+  &.reversed {
+    color: rgba(255,255,255,0.6);
+  }
+}
