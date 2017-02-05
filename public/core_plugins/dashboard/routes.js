@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { fetchDashboards } from './actions/dashboards';
-import { AppContainer } from './containers/app';
-import { DashboardListContainer } from './containers/dashboard_list';
+import { AppContainer } from './components/AppContainer';
+import { DashboardListContainer } from './components/DashboardListContainer';
 import { Router, Route, IndexRedirect } from 'react-router';
 
 export default (props) => {
@@ -20,7 +19,6 @@ export default (props) => {
           <IndexRedirect to="list"/>
           <Route
             path="list"
-            onEnter={ fetchDashboards }
             component={ DashboardListContainer }/>
         </Route>
       </Route>

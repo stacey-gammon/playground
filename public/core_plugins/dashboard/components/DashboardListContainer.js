@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Container } from 'flux/utils';
 
-import { DashboardListView } from '../views/dashboard_list';
-import { dashboardStore } from '../stores/dashboard_store';
+import { DashboardListView } from '../views/DashboardListView';
+import { dashboardStore } from '../stores/DashboardStore';
 
 class DashboardList extends React.Component {
   static getStores() {
@@ -16,7 +16,7 @@ class DashboardList extends React.Component {
   }
 
   render() {
-    return <DashboardListView dashboardState={this.state.dashboardState} />;
+    return <DashboardListView dashboards={this.state.dashboardState.dashboards}/>;
   }
 }
 

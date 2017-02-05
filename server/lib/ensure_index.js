@@ -1,5 +1,5 @@
 import settings from './settings.json';
-import { AppStrings } from '../../app_strings';
+import { AppStrings } from '../../AppStrings';
 
 export function ensureIndex(server) {
   return () => {

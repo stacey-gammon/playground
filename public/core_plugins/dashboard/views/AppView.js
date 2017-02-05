@@ -1,5 +1,5 @@
 import React from 'react';
-import Spinner from '../ui_framework/spinner';
+import { Spinner } from '../../../UiFramework/Spinner';
 
 export class AppView extends React.Component {
   constructor() {

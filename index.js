@@ -1,4 +1,4 @@
-import { AppStrings } from './app_strings';
+import { AppStrings } from './AppStrings';
 import apiDashboardsRoutes from './server/routes/api/dashboards';
 import { ensureIndex } from './server/lib/ensure_index';
 import Promise from 'bluebird';

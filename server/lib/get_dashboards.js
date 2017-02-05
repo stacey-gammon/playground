@@ -1,4 +1,4 @@
-import { AppStrings } from '../../app_strings';
+import { AppStrings } from '../../AppStrings';
 
 import _ from 'lodash';
 export default (req) => {

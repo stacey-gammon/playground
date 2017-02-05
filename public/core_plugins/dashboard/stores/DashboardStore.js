@@ -1,8 +1,7 @@
 import { ReduceStore } from 'flux/utils';
 import { dispatcher } from '../dispatcher/dispatcher';
-import { DashboardActionTypes } from '../actions/action_types';
-import { DashboardState } from '../state/dashboard_state';
-import Immutable from 'immutable';
+import { DashboardActionTypes } from '../actions/ActionTypes';
+import { DashboardState } from '../state/DashboardState';
 
 class DashboardStore extends ReduceStore {
   constructor() {
