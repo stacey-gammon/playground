@@ -1,10 +1,10 @@
 import React from 'react';
 import '../../../../UiFramework/Table/ColumnDefinition';
 
-function getTitleRow(dashboard) {
+function getTitleRow(item) {
   return <div className="kuiTableRowCell__liner">
       <a className="kuiLink">
-        { dashboard.title }
+        { item.title }
       </a>
     </div>;
 }
@@ -13,7 +13,7 @@ function getTitleRow(dashboard) {
  *
  * @type {Array.<ColumnDefinition>}
  */
-export const DashboardColumns = [
+export const VisualizationColumns = [
   {
     id: 'title',
     sortBy: 'title',
@@ -24,6 +24,6 @@ export const DashboardColumns = [
     id: 'Id',
     sortBy: 'id',
     title: 'Id',
-    getRow: (dashboard) => <div>{ dashboard.id }</div>
+    getRow: (item) => <div>{ item.id }</div>
   }
 ];

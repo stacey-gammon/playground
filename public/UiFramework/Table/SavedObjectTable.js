@@ -3,7 +3,7 @@ import _ from 'lodash';
 
 import './ColumnDefinition';
 import { TableHeaderColumn } from './TableHeaderColumn';
-import { SavedObjectTableRow } from './SavedObjectTableRow';
+import { SelectableTableRow } from './SelectableTableRow';
 import { SortOrder } from '../../common/SortOrder';
 import { KuiTable } from './KuiTable';
 import { CheckBoxTableHeader } from './CheckBoxTableHeader';
@@ -34,29 +34,34 @@ export class SavedObjectTable extends React.Component {
     return this.state.selectedItems.indexOf(item) !== -1;
   }
 
-  renderRow(savedObject) {
-    return <SavedObjectTableRow
-        key={savedObject.id}
-        isSelected={ this.isItemChecked(savedObject) }
-        onToggleItem={ () => this.toggleItem(savedObject) }
-        savedObject={ savedObject }
+  /**
+   *
+   * @param item {SavedObject}
+   * @returns {XML}
+   */
+  renderRow(item) {
+    return <SelectableTableRow
+        key={item.id}
+        isSelected={ this.isItemChecked(item) }
+        onToggleItem={ () => this.toggleItem(item) }
+        savedObject={ item }
         columnDefinitions={ this.props.columns }
     />;
   }
 
   renderRows() {
     const { sortOrder, sortedColumnId } = this.state;
-    const { savedObjects, columns } = this.props;
+    const { items, columns } = this.props;
 
     const columnToSort =
         _.find(columns, (column) => column.id === sortedColumnId) ||
         columns[0];
 
-    const sortedObjects = sortOrder === SortOrder.ASC
-        ? _.sortBy(savedObjects, columnToSort.sortBy)
-        : _.sortBy(savedObjects, columnToSort.sortBy).reverse();
+    const sortedItems = sortOrder === SortOrder.ASC
+        ? _.sortBy(items, columnToSort.sortBy)
+        : _.sortBy(items, columnToSort.sortBy).reverse();
 
-    return sortedObjects.map((row) => this.renderRow(row));
+    return sortedItems.map((row) => this.renderRow(row));
   }
 
   getFlippedSortOrder() {
@@ -90,14 +95,14 @@ export class SavedObjectTable extends React.Component {
   }
 
   areAllItemsChecked() {
-    return this.getSelectedItemsCount() === this.props.savedObjects.length;
+    return this.getSelectedItemsCount() === this.props.items.length;
   }
 
   toggleAll() {
     if (this.areAllItemsChecked()) {
       this.setState({ selectedItems: [] });
     } else {
-      this.setState({ selectedItems: this.state.items.slice(0) });
+      this.setState({ selectedItems: this.props.items.slice(0) });
     }
   }
 
@@ -120,7 +125,7 @@ export class SavedObjectTable extends React.Component {
 }
 
 SavedObjectTable.PropTypes = {
-  savedObjects: React.PropTypes.array,
+  items: React.PropTypes.array,
   /**
    * A mapping of id to column elements for the header.
    * @param columns {Array.<ColumnDefinition>}

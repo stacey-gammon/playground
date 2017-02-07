@@ -1,5 +1,5 @@
 import { AppStrings } from './AppStrings';
-import apiDashboardsRoutes from './server/routes/api/dashboards';
+import { savedObjectsApi } from './server/routes/api/saved_objects_api';
 import { ensureIndex } from './server/lib/ensure_index';
 import Promise from 'bluebird';
 
@@ -10,7 +10,7 @@ export default function (kibana) {
     uiExports: {
       app: {
         title: AppStrings.appName(),
-        description: 'A Metrics UI',
+        description: 'A Kibana React Example',
         main: `plugins/${AppStrings.normalizedAppName()}/app`,
         injectVars: function (server) {
           const config = server.config();
@@ -37,7 +37,7 @@ export default function (kibana) {
       server.log(['info'], 'initializing server');
       const { status } = server.plugins.elasticsearch;
 
-      apiDashboardsRoutes(server);
+      savedObjectsApi(server);
 
       if (status) {
         status.on('green', () => {

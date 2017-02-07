@@ -3,8 +3,3 @@ export const DashboardActionTypes = {
   LOAD_DASHBOARDS: 'LOAD_DASHBOARDS',
   DASHBOARDS_RESPONSE: 'DASHBOARDS_RESPONSE'
 };
-
-export const AppActionTypes = {
-  SET_KBN_VERSION: 'SET_KBN_VERSION',
-  SET_BASE_PATH: 'SET_BASE_PATH'
-};

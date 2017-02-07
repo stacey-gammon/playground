@@ -7,10 +7,11 @@ import './angular/history';
 import './angular/store';
 import './angular/global_state';
 import './core_plugins/dashboard/less/main.less';
+import './less/main.less';
 
 import { render } from 'react-dom';
 import { AppStrings } from '../AppStrings';
-import Routes from './core_plugins/dashboard/routes';
+import { Routes } from './routes/Routes';
 
 chrome
     .setRootTemplate('<div id="root"></div>')

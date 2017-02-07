@@ -2,20 +2,20 @@ import fetch from 'isomorphic-fetch';
 
 import { dispatch } from '../../../Dispatcher';
 import { appStore } from '../../../AppStore';
-import { DashboardActionTypes } from './DashboardActionTypes';
+import { VisualizationActionTypes } from './VisualizationActionTypes';
 import { SavedObjectApi } from '../../../common/SavedObjectApi';
 import { SavedObjectTypes } from '../../../../common/SavedObjectTypes';
 import { handleApiResponse } from '../../../common/handleApiResponse';
 
-export class DashboardActions {
-  static dashboardsResponse(json) {
-    dispatch({ type: DashboardActionTypes.DASHBOARDS_RESPONSE, json });
+export class VisualizationActions {
+  static visualizationReponse(json) {
+    dispatch({ type: VisualizationActionTypes.VISUALIZATIONS_RESPONSE, json });
   }
 
-  static fetchDashboards() {
+  static fetchVisualizations() {
     const params = SavedObjectApi.getGetHeader(appStore.getState().kbnVersion);
-    return fetch(SavedObjectApi.getPathForType(SavedObjectTypes.DASHBOARD), params)
+    return fetch(SavedObjectApi.getPathForType(SavedObjectTypes.VISUALIZATION), params)
         .then(handleApiResponse)
-        .then(json => this.dashboardsResponse(json));
+        .then(json => this.visualizationReponse(json));
   }
 }

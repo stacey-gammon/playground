@@ -9,15 +9,18 @@ export class TableHeaderColumn extends React.Component {
   }
 
   onHeaderClicked() {
-    const { isSortable, onToggleSort } = this.props;
+    const { isSortable, onSort } = this.props;
     if (isSortable) {
-      onToggleSort();
+      onSort();
     }
   }
 
   render() {
-    const { className } = this.props;
-    const classNames = `kuiTableHeaderCell ${className || ''}`;
+    const { className, isSortable } = this.props;
+    let classNames = `kuiTableHeaderCell ${className || ''}`;
+    if (isSortable) {
+      classNames += ' kuiTableHeaderCell__sortable';
+    }
     return (
         <th className={classNames} onClick={() => this.onHeaderClicked()}>
           { this.props.children }
@@ -30,6 +33,6 @@ export class TableHeaderColumn extends React.Component {
 TableHeaderColumn.PropTypes = {
   isSortable: React.PropTypes.bool,
   sortOrder: React.PropTypes.string,
-  onToggleSort: React.PropTypes.func,
+  onSort: React.PropTypes.func,
   className: React.PropTypes.string
 };

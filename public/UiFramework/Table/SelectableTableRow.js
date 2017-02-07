@@ -5,7 +5,7 @@ import './ColumnDefinition';
 import { KuiTableRow } from './KuiTableRow';
 import { CheckBoxTableColumn } from './CheckBoxTableColumn';
 
-export class SavedObjectTableRow extends React.Component {
+export class SelectableTableRow extends React.Component {
   renderColumn(columnDefinition) {
     const { savedObject } = this.props;
     const className = `kuiTableRowCell ${columnDefinition.className || ''}`;
@@ -26,7 +26,7 @@ export class SavedObjectTableRow extends React.Component {
   }
 }
 
-SavedObjectTableRow.PropTypes = {
+SelectableTableRow.PropTypes = {
   savedObject: React.PropTypes.any,
   /**
    * @type {Array.<ColumnDefinition>}
