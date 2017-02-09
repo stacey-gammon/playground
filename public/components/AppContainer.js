@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Container } from 'flux/utils';
-import { appStore } from './AppStore';
-import { AppView } from './AppView';
+import { appStore } from '../Stores/AppStore';
+import { AppView } from '../Views/AppView';
 
 class App extends React.Component {
   static getStores() {

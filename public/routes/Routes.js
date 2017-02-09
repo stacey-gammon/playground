@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { AppContainer } from '../AppContainer';
-import { VisualizationListContainer } from '../core_plugins/visualize/components/VisualizationListContainer';
-import { DashboardListContainer } from '../core_plugins/dashboard/components/DashboardListContainer';
+import { AppContainer } from '../Components/AppContainer';
+import { VisualizationListContainer } from '../components/VisualizationListContainer';
+import { DashboardListContainer } from '../components/DashboardListContainer';
 import { Router, Route, IndexRedirect } from 'react-router';
 import { SavedObjectTypes } from '../../common/SavedObjectTypes';
 

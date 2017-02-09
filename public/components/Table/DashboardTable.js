@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { SavedObjectTable } from '../../../../UiFramework/Table/SavedObjectTable';
+import { LandingPageTable } from '../../UiFramework/Table/LandingPageTable';
 import { DashboardColumns } from './DashboardColumns';
 
 export class DashboardTable extends React.Component {
   render() {
-    return <SavedObjectTable
+    return <LandingPageTable
         items={this.props.dashboards}
         columns={ DashboardColumns }>
-    </SavedObjectTable>;
+    </LandingPageTable>;
   }
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { DashboardTable } from '../Components/Table/DashboardTable';
-import { PromptForItems } from '../../../UiFramework/Table/PromptForItems';
+import { PromptForItems } from '../UiFramework/Table/PromptForItems';
 import { DashboardActions } from '../actions/DashboardActions';
 
 export class DashboardListView extends React.Component {

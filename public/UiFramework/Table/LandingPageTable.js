@@ -8,7 +8,7 @@ import { SortOrder } from '../../common/SortOrder';
 import { KuiTable } from './KuiTable';
 import { CheckBoxTableHeader } from './CheckBoxTableHeader';
 
-export class SavedObjectTable extends React.Component {
+export class LandingPageTable extends React.Component {
   constructor() {
     super();
 
@@ -124,7 +124,7 @@ export class SavedObjectTable extends React.Component {
   }
 }
 
-SavedObjectTable.PropTypes = {
+LandingPageTable.PropTypes = {
   items: React.PropTypes.array,
   /**
    * A mapping of id to column elements for the header.

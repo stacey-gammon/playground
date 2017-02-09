@@ -1,5 +1,5 @@
 import { getItemsOfType } from '../../lib/get_items_of_type';
-import { allSavedObjectTypes } from '../../../common/SavedObjectTypes';
+import { getCoreSavedObjectTypes } from '../../../common/SavedObjectTypes';
 import { AppConsts } from '../../../common/AppConsts';
 
 function createAllApi(server, type) {
@@ -13,7 +13,7 @@ function createAllApi(server, type) {
 }
 
 export function savedObjectsApi(server) {
-  allSavedObjectTypes().forEach((type) => {
+  getCoreSavedObjectTypes().forEach((type) => {
     createAllApi(server, type);
   });
 }

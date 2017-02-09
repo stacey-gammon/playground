@@ -1,8 +1,8 @@
 import React from 'react';
-import { Spinner } from './UiFramework/Spinner';
-import { ContentTabs } from './UiFramework/Tabs/ContentTabs';
-import { SavedObjectTypes } from '../common/SavedObjectTypes';
-import { AppActions } from './AppActions';
+import { Spinner } from '../UiFramework/Spinner';
+import { ContentTabs } from '../UiFramework/Tabs/ContentTabs';
+import { SavedObjectTypes } from '../../common/SavedObjectTypes';
+import { AppActions } from '../Actions/AppActions';
 
 export class AppView extends React.Component {
   constructor() {

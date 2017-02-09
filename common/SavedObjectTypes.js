@@ -3,6 +3,6 @@ export const SavedObjectTypes = {
   DASHBOARD: 'dashboard'
 };
 
-export function allSavedObjectTypes() {
+export function getCoreSavedObjectTypes() {
   return [SavedObjectTypes.VISUALIZATION, SavedObjectTypes.DASHBOARD];
 }

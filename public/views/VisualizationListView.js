@@ -1,6 +1,6 @@
 import React from 'react';
 import { VisualizationTable } from '../Components/Table/VisualizationTable';
-import { PromptForItems } from '../../../UiFramework/Table/PromptForItems';
+import { PromptForItems } from '../UiFramework/Table/PromptForItems';
 import { VisualizationActions } from '../actions/VisualizationActions';
 
 export class VisualizationListView extends React.Component {

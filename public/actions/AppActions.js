@@ -1,5 +1,5 @@
 import { AppActionTypes } from './AppActionTypes';
-import { dispatch } from './Dispatcher';
+import { dispatch } from '../Dispatcher';
 
 export class AppActions {
   static setKbnVersion(kbnVersion) {

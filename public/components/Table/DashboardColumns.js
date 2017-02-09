@@ -1,13 +1,5 @@
 import React from 'react';
-import '../../../../UiFramework/Table/ColumnDefinition';
-
-function getTitleRow(dashboard) {
-  return <div className="kuiTableRowCell__liner">
-      <a className="kuiLink">
-        { dashboard.title }
-      </a>
-    </div>;
-}
+import { TableCellLink } from '../../UiFramework/Table/TableCellLink';
 
 /**
  *
@@ -18,7 +10,7 @@ export const DashboardColumns = [
     id: 'title',
     sortBy: 'title',
     title: 'Title',
-    getRow: getTitleRow
+    getRow: (item) => <TableCellLink title={ item.title } />
   },
   {
     id: 'Id',

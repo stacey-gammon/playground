@@ -14,11 +14,26 @@ export default function (kibana) {
         main: `plugins/${AppStrings.normalizedAppName()}/app`,
         injectVars: function (server) {
           const config = server.config();
+
+          //DEPRECATED SETTINGS
+          //if the url is set, the old settings must be used.
+          //keeping this logic for backward compatibilty.
+          const configuredUrl = server.config().get('tilemap.url');
+          const isOverridden = typeof configuredUrl === 'string' && configuredUrl !== '';
+          const tilemapConfig = config.get('tilemap');
+
           return {
             kbnIndex: config.get('kibana.index'),
             esShardTimeout: config.get('elasticsearch.shardTimeout'),
             esApiVersion: config.get('elasticsearch.apiVersion'),
-            basePath: config.get('server.basePath')
+            basePath: config.get('server.basePath'),
+            tilemapsConfig: {
+              deprecated: {
+                isOverridden: isOverridden,
+                config: tilemapConfig,
+              },
+              manifestServiceUrl: config.get('tilemap.manifestServiceUrl')
+            },
           };
         }
       }
